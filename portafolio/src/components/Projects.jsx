@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 function Projects() {
   const projects = [
     {
-      title: 'AeroPark24,',
+      title: 'AeroPark24',
       description: "Es una aplicación diseñada para facilitar la reserva y gestión de aparcamiento en el aeropuerto. Los usuarios pueden realizar reservas, gestionar sus vehículos y recibir servicios personalizados de manera eficiente y segura.",
-      link: 'http://aeropark24.infy.uk/',
+      link: 'http://aeropark24.infy.uk/'
     },
     {
       title: 'Proyecto 2',
@@ -15,11 +15,27 @@ function Projects() {
       link: '#',
     },
     {
-      title: 'Proyecto 2',
+      title: 'Proyecto 3',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quo veritatis nulla enim, dolor consequatur ipsum, voluptas quas nobis, doloribus quos nesciunt corporis tenetur at magnam quae dolores. Facere, nemo!',
       link: '#',
     },
+    
   ];
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            }
+        },
+        { threshold: 0.5 }
+        );
+
+        const aboutSection = document.querySelector('#projects');
+        if (aboutSection) observer.observe(aboutSection);
+
+        return () => observer.disconnect();
+    }, []);
 
   return (
     <Container id="projects" className="my-5">
@@ -27,9 +43,9 @@ function Projects() {
       <Row>
         {projects.map((project, index) => (
           <Col key={index} md={4}>
-             <Card className="mb-2 text-muted" style={{ width: '18rem' }}>
+             <Card className="mb-5 text-muted" style={{ width: '18rem' }}>
               <Card.Body>
-                <Card.Title>{project.title}</Card.Title>
+                <Card.Title className='text-center'>{project.title}</Card.Title>
                 <Card.Text>{project.description}</Card.Text>
                 <Button 
                  variant="dark"

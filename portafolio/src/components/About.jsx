@@ -24,10 +24,10 @@ function About() {
         <Col md={6}>
           <h2>Sobre mí</h2>
           <h3>
-            ¡Hola! Soy Juancar, un desarrollador full-stack apasionado por crear soluciones eficientes y elegantes. Mi enfoque principal es el desarrollo web, pero siempre estoy explorando nuevas tecnologías y desafiándome a aprender más.
+          ¡Hola! Soy Juan Carlos, estudiante en desarrollo Full-Stack con un enfoque en el diseño y desarrollo de aplicaciones web modernas. Estoy en búsqueda de una oportunidad para realizar prácticas profesionales y adquirir experiencia en un entorno colaborativo donde pueda contribuir con mis conocimientos y seguir aprendiendo.
           </h3>
           <h3>
-            Disfruto trabajar en proyectos innovadores que mezclen creatividad y tecnología. Cuando no estoy programando, me gusta aprender sobre diseño, colaborar en equipos dinámicos y compartir conocimientos con la comunidad.
+          Me apasiona trabajar en proyectos innovadores que integren creatividad y tecnología. Valoro el aprendizaje continuo, el trabajo en equipo, y me motiva la idea de aportar valor mientras crezco profesionalmente en el mundo del desarrollo web.
           </h3>
         </Col>
         <Col md={6}>
