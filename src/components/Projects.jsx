@@ -1,7 +1,12 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./css/Projects.css";
+
+// Importar imágenes desde 'src/assets'
+import image2 from "../assets/2.png";
+import image3 from "../assets/3.jpg";
+import image4 from "../assets/4.jpg";
+import image5 from "../assets/5.jpg";
 
 const Projects = () => {
   const projects = [
@@ -10,28 +15,28 @@ const Projects = () => {
       description:
         "Aplicación para la gestión de reservas de aparcamiento en el aeropuerto. Facilita reservas y ofrece servicios personalizados.",
       link: "http://aeropark24.infy.uk/",
-      image: "../src/assets/2.png",
+      image: image2,
     },
     {
       title: "Bakery-Shop",
       description:
-        "Una Bakery-Shop es una aplicación que permite a los clientes ordenar y pagar por sus productos de panadería. Creada solamente con HTML y CSS.",
+        "Una Bakery-Shop que permite a los clientes ordenar y pagar por productos de panadería. Creada con HTML y CSS.",
       link: "#",
-      image: "../src/assets/3.jpg",
+      image: image3,
     },
     {
       title: "Ricky & Morty - API",
       description:
-        "Implementación de la API Ricky and Morty utilizando la librería jQuery de JavaScript. Ademas de Boostrap para el diseño",
+        "Implementación de la API de Rick and Morty utilizando jQuery y Bootstrap para el diseño.",
       link: "#",
-      image: "../src/assets/5.jpg",
+      image: image5,
     },
     {
       title: "Fake-Store API",
       description:
-        "Implementación de tienda E-Commerce utilizando React y Node.js.",
+        "Tienda E-Commerce utilizando React y Node.js, integrando una API para productos.",
       link: "#",
-      image: "../src/assets/4.jpg",
+      image: image4,
     },
   ];
 
