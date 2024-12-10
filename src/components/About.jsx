@@ -2,15 +2,18 @@
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import logo1 from "../assets/1.png";
-import "../css/About.css";
+import "./css/About.css"; // Archivo de estilos externo
 
 function About() {
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
       },
       { threshold: 0.5 }
     );
@@ -20,27 +23,39 @@ function About() {
 
     return () => observer.disconnect();
   }, []);
+
   return (
-    <Container id="about" className="my-4">
+    <Container id="about" className="my-5 about-section">
       <Row className="align-items-center">
-        <Col md={6}>
-          <h2>Sobre mí</h2>
-          <h3>
-            ¡Hola! Soy Juan Carlos, estudiante en desarrollo Full-Stack con un
-            enfoque en el diseño y desarrollo de aplicaciones web modernas.
-            Estoy en búsqueda de una oportunidad para realizar prácticas
-            profesionales y adquirir experiencia en un entorno colaborativo
-            donde pueda contribuir con mis conocimientos y seguir aprendiendo.
-          </h3>
-          <h3>
-            Me apasiona trabajar en proyectos innovadores que integren
-            creatividad y tecnología. Valoro el aprendizaje continuo, el trabajo
-            en equipo, y me motiva la idea de aportar valor mientras crezco
-            profesionalmente en el mundo del desarrollo web.
-          </h3>
+        {/* Columna de Texto */}
+        <Col md={6} className="about-text">
+          <h2 className="mb-4">Sobre mí</h2>
+          <p>
+            ¡Hola! Soy <strong>Juan Carlos</strong>, estudiante en desarrollo
+            <strong> Full-Stack</strong> con un enfoque en el diseño y
+            desarrollo de aplicaciones web modernas. Estoy en búsqueda de una
+            oportunidad para realizar <strong>prácticas profesionales</strong> y
+            adquirir experiencia en un entorno colaborativo donde pueda
+            contribuir con mis conocimientos y seguir aprendiendo.
+          </p>
+          <p>
+            Me apasiona trabajar en proyectos innovadores que integren{" "}
+            <strong>creatividad</strong> y <strong>tecnología</strong>. Valoro
+            el aprendizaje continuo, el trabajo en equipo, y me motiva la idea
+            de aportar valor mientras crezco profesionalmente en el mundo del
+            desarrollo web.
+          </p>
         </Col>
-        <Col md={6}>
-          <img src={logo1} alt="Logo" className="d-inline-block align-top" />
+
+        {/* Columna de Imagen */}
+        <Col md={6} className="text-center about-image">
+          <img
+            src={logo1}
+            alt="Juan Carlos - Logo"
+            loading="lazy"
+            className="img-fluid rounded shadow"
+            aria-label="Imagen representativa de Juan Carlos"
+          />
         </Col>
       </Row>
     </Container>

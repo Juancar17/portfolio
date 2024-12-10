@@ -1,11 +1,9 @@
 // eslint-disable-next-line no-unused-vars
-import "../css/Projects.css";
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Col, Container, Row } from "react-bootstrap";
+import "./css/Projects.css";
 
-function Projects() {
+const Projects = () => {
   const projects = [
     {
       title: "AeroPark24",
@@ -17,14 +15,21 @@ function Projects() {
     {
       title: "Bakery-Shop",
       description:
-        "Una calculadora interactiva que permite a los usuarios planificar y gestionar sus gastos de viaje de manera sencilla.",
+        "Una Bakery-Shop es una aplicación que permite a los clientes ordenar y pagar por sus productos de panadería. Creada solamente con HTML y CSS.",
       link: "#",
       image: "../src/assets/3.jpg",
     },
     {
-      title: "Ricky & Morty - API ",
+      title: "Ricky & Morty - API",
       description:
-        "Implementación del clásico juego Tetris utilizando HTML, CSS y JavaScript puro, con lógica de colisiones y puntuación.",
+        "Implementación de la API Ricky and Morty utilizando la librería jQuery de JavaScript. Ademas de Boostrap para el diseño",
+      link: "#",
+      image: "../src/assets/5.jpg",
+    },
+    {
+      title: "Fake-Store API",
+      description:
+        "Implementación de tienda E-Commerce utilizando React y Node.js.",
       link: "#",
       image: "../src/assets/4.jpg",
     },
@@ -50,39 +55,39 @@ function Projects() {
 
   return (
     <Container id="projects" className="my-5">
-      <h2 className="text-center mb-5">Proyectos</h2>
-      <Row className="g-4">
-        {projects.map((project, index) => (
-          <Col key={index} md={4}>
-            <Card className="project-card shadow-sm border-0">
-              <Card.Img
-                variant="top"
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-              />
-              <Card.Body className="d-flex flex-column">
-                <Card.Title className="text-center mb-3">
-                  {project.title}
-                </Card.Title>
-                <Card.Text className="flex-grow-1">
-                  {project.description}
-                </Card.Text>
-                <Button
-                  variant="dark"
-                  href={project.link}
-                  target="_blank"
-                  className="mt-auto"
-                >
-                  Ver Proyecto
-                </Button>
-              </Card.Body>
-            </Card>
+      <h2 className="text-center mb-5">Mis Proyectos</h2>
+      <Row className="g-4 justify-content-center">
+        {projects.map(({ title, description, link, image }, index) => (
+          <Col key={index} md={6} lg={4}>
+            <div className="project-card shadow-lg">
+              <div className="project-image-wrapper">
+                <img
+                  src={image}
+                  alt={title}
+                  className="project-image"
+                  loading="lazy"
+                />
+                <div className="project-overlay">
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="overlay-button"
+                  >
+                    Ver Proyecto
+                  </a>
+                </div>
+              </div>
+              <div className="project-content text-center p-4">
+                <h3 className="project-title">{title}</h3>
+                <p className="project-description">{description}</p>
+              </div>
+            </div>
           </Col>
         ))}
       </Row>
     </Container>
   );
-}
+};
 
 export default Projects;

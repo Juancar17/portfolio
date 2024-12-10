@@ -42,34 +42,6 @@ body {
   box-shadow: -8px -10px 20px 20px rgb(43 42 42 / 20%);
 }
 
-#about {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease-in-out;
-  padding: 2rem 0;
-}
-#about.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#about h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
-#about h3 {
-  font-size: 1.4rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-#about img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
 #contact {
   padding: 2rem 0;
 }
@@ -89,13 +61,6 @@ body {
 #contact .form-control {
   border-radius: 8px;
   padding: 1rem;
-}
-
-#skills h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: #333;
 }
 
 .row:hover {
