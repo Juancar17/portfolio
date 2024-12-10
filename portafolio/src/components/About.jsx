@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import logo1 from "../assets/1.png";
-import "../css/About.css";
 
 function About() {
   useEffect(() => {
