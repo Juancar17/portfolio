@@ -1,49 +1,76 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
+import {
+  faBootstrap,
+  faCss3Alt,
+  faHtml5,
+  faJs,
+  faPhp,
+  faReact,
+} from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
+import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 
 function Skills() {
-  const skills = ['React', 'JavaScript', 'HTML', 'CSS', 'Bootstrap', 'PHP'];
+  const skills = [
+    {
+      name: "React",
+      icon: faReact,
+      url: "https://github.com/Juancar17",
+    },
+    {
+      name: "JavaScript",
+      icon: faJs,
+      url: "https://github.com/Juancar17/",
+    },
+    {
+      name: "HTML",
+      icon: faHtml5,
+      url: "https://github.com/Juancar17/",
+    },
+    {
+      name: "CSS",
+      icon: faCss3Alt,
+      url: "https://github.com/Juancar17/",
+    },
+    {
+      name: "Bootstrap",
+      icon: faBootstrap,
+      url: "https://github.com/Juancar17",
+    },
+    {
+      name: "PHP",
+      icon: faPhp,
+      url: "https://github.com/Juancar17",
+    },
+  ];
 
-  // Estados para controlar el modal
-  const [show, setShow] = useState(false);
-  const [selectedSkill, setSelectedSkill] = useState('');
-
-  // Detalles de cada habilidad
   const skillDetails = {
     React: `
-      - Creé un portafolio interactivo utilizando React, dividiendo la interfaz en componentes reutilizables como 'Sobre mí', 'Skills' y 'Proyectos'.
-      - Utilicé React Hooks como useState para manejar estados, y useEffect para agregar efectos dinámicos como animaciones.
-      - Implementé interacción entre componentes, como botones que abren modales personalizados.
+      - Creé un portafolio interactivo utilizando React, dividiendo la interfaz en componentes reutilizables.
+      - Utilicé React Hooks para manejar estados y efectos dinámicos.
     `,
     JavaScript: `
-      - Desarrollé funcionalidades dinámicas en aplicaciones web, como sistemas de interacción basados en eventos (onClick, onSubmit).
-      - Construí una calculadora de gastos de viaje que valida entradas y calcula resultados en tiempo real.
-      - Creé un juego estilo Tetris con lógica en JavaScript puro, manejando colisiones, movimientos y puntuación.
+      - Desarrollé lógicas dinámicas para aplicaciones, como validaciones y juegos interactivos.
     `,
     HTML: `
-      - Estructuré páginas web siguiendo las mejores prácticas de semántica, utilizando etiquetas como <header>, <section>, y <footer>.
-      - Construí la base de mi portafolio desde cero, asegurándome de que fuera accesible y fácil de leer.
+      - Estructuré la base de aplicaciones web con etiquetas semánticas y accesibles.
     `,
     CSS: `
-      - Diseñé estilos personalizados utilizando CSS puro y combinándolo con Bootstrap para crear interfaces responsivas y modernas.
-      - Implementé animaciones suaves, como transiciones en botones y hover effects para mejorar la experiencia del usuario.
-      - Usé CSS Grid y Flexbox para lograr diseños perfectamente alineados en múltiples resoluciones.
+      - Diseñé estilos responsivos utilizando Flexbox y Grid, añadiendo transiciones y animaciones.
     `,
     Bootstrap: `
-      - Utilicé Bootstrap para acelerar el desarrollo de interfaces, como en las tarjetas de "Proyectos" y el diseño de botones en la sección "Skills".
-      - Personalicé componentes de Bootstrap con clases CSS para que reflejaran un diseño único.
-      - Implementé un diseño responsivo que asegura que mi portafolio se vea bien en dispositivos móviles y de escritorio.
+      - Implementé componentes de Bootstrap personalizados y responsivos para interfaces modernas.
     `,
     PHP: `
-      - Diseñé aplicaciones dinámicas utilizando PHP como lenguaje de servidor.
-      - Implementé formularios que envían datos al servidor para su validación y almacenamiento.
-      - Conecté aplicaciones web a bases de datos MySQL para realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar).
-      - Desarrollé funcionalidades de autenticación de usuarios, como inicio de sesión y registro, asegurando la seguridad de los datos con hashes de contraseñas.
-      - Creé scripts de backend para manejar interacciones personalizadas, como procesamiento de formularios de contacto.
+      - Creé backend dinámico para aplicaciones, incluyendo manejo de bases de datos y formularios.
     `,
   };
 
-  // Funciones para abrir y cerrar el modal
+  // Estados para controlar el modal
+  const [show, setShow] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState({});
   const handleClose = () => setShow(false);
   const handleShow = (skill) => {
     setSelectedSkill(skill);
@@ -55,15 +82,20 @@ function Skills() {
       <h2 className="text-center mb-4">Skills</h2>
       <Row>
         {skills.map((skill, index) => (
-          <Col key={index} md={2} className="mb-5">
-            <Button
-              variant="dark"
-              className="w-100 h-100"
-              size="lg"
+          <Col key={index} md={4} className="mb-4">
+            <Card
+              className="text-center shadow-sm skill-card"
               onClick={() => handleShow(skill)}
             >
-              {skill}
-            </Button>
+              <Card.Body>
+                <FontAwesomeIcon
+                  icon={skill.icon}
+                  size="3x"
+                  className="mb-3 text-primary"
+                />
+                <Card.Title>{skill.name}</Card.Title>
+              </Card.Body>
+            </Card>
           </Col>
         ))}
       </Row>
@@ -71,17 +103,39 @@ function Skills() {
       {/* Modal */}
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>{selectedSkill}</Modal.Title>
+          <Modal.Title>
+            <FontAwesomeIcon icon={selectedSkill.icon} className="me-2" />
+            {selectedSkill.name}
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ whiteSpace: 'pre-line' }}>
-          {skillDetails[selectedSkill] || 'No hay información disponible para esta habilidad.'}
+        <Modal.Body style={{ whiteSpace: "pre-line" }}>
+          {skillDetails[selectedSkill.name] || "No hay información disponible."}
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="primary" href={selectedSkill.url} target="_blank">
+            <FontAwesomeIcon icon={faExternalLinkAlt} className="me-2" />
+            Ver Proyecto
+          </Button>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/* Estilo personalizado */}
+      <style jsx>{`
+        .skill-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          cursor: pointer;
+        }
+        .skill-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .text-primary {
+          color: #0d6efd !important;
+        }
+      `}</style>
     </Container>
   );
 }
