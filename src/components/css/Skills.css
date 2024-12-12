@@ -1,0 +1,44 @@
+/* Skills Container */
+.skill-card {
+  background: #717171;
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card .text-primary {
+  color: #000000; /* Iconos azules por defecto */
+}
+
+.skill-card:hover .text-primary {
+  color: #000000; /* Color al pasar el mouse */
+}
+
+/* Modal customization */
+.modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.modal-title svg {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.modal-header {
+  background-color: #2d87e1;
+  border-bottom: none;
+}
+
+.card-body {
+  background-color: #d2d2d2;
+}
+
+.modal-footer {
+  border-top: none;
+}

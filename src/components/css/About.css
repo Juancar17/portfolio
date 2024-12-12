@@ -1,0 +1,39 @@
+/* Contenedor principal */
+.about-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Texto estilizado */
+.about-text h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-text strong {
+  color: #000000;
+}
+
+/* Imagen estilizada */
+.about-image img {
+  max-width: 80%;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
