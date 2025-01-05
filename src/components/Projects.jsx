@@ -7,6 +7,7 @@ import image2 from "../assets/2.png";
 import image3 from "../assets/3.jpg";
 import image4 from "../assets/4.jpg";
 import image5 from "../assets/5.jpg";
+import image6 from "../assets/5.png";
 
 const Projects = () => {
   const projects = [
@@ -37,6 +38,13 @@ const Projects = () => {
         "Tienda E-Commerce utilizando React y Node.js, integrando una API para productos.",
       link: "https://fake-store1-v3am.vercel.app/",
       image: image4,
+    },
+    {
+      title: "Kafé con K",
+      description:
+        "Pagina web de una cafetería, con un diseño minimalista y elegante. Creada con React y Tailwind.",
+      link: "https://kafecon-k.vercel.app/",
+      image: image6,
     },
   ];
 
