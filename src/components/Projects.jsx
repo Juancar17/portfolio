@@ -15,7 +15,7 @@ const Projects = () => {
       title: "AeroPark24",
       description:
         "Aplicación para la gestión de reservas de aparcamiento en el aeropuerto. Facilita reservas y ofrece servicios personalizados.",
-      link: "http://aeropark24.infy.uk/",
+      link: "https://aero-park.vercel.app/",
       image: image2,
     },
     {
